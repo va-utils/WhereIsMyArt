@@ -58,7 +58,7 @@ namespace PhotoFinder
 
             string[] dirs = Directory.GetDirectories(path);
             string[] files = Directory.GetFiles(path, "*.*").Where((s) => s.ToLower().EndsWith(".jpg") || s.ToLower().EndsWith(".jpeg")).ToArray(); ;
-            
+            string sw = string.Empty;
             foreach(var f in files)
             {
                 if (token.IsCancellationRequested)
@@ -68,7 +68,6 @@ namespace PhotoFinder
                 try
                 {
                     var dirsPhoto = MetadataExtractor.ImageMetadataReader.ReadMetadata(Path.GetFullPath(f));
-                    string sw;
                     if ((sw = GetPhotoSoftware(dirsPhoto)) != null)
                     {
                         FileFounded?.Invoke(this, new EventArgs());
