@@ -15,7 +15,7 @@ namespace PhotoFinder
     {
         public string DateTimeOriginal { get; set; } //дата фотосъемки
         public string Path { get; set; } //путь
-        public string Software { get; set; } 
+        public string Software { get; set; } //название фоторедактора
     }
    
     class PhotoFinder
